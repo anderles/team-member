@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Elogic_Teammate::top_level" title="Elogic Teammates" module="Elogic_Teammate" sortOrder="10" resource="Elogic_Teammate::top_level"/>
+        <add id="Elogic_Teammate::elogic_teammate_teammate" title="Manage Teammates" module="Elogic_Teammate" sortOrder="9999" resource="Magento_Backend::content" parent="Elogic_Teammate::top_level" action="elogic_teammate/teammate/index"/>
+    </menu>
+</config>

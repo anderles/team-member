@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="elogic_teammates" resource="default" engine="innodb" comment="Elogic Teammate Common Table">
+        <column xsi:type="int" name="teammate_id" unsigned="true" nullable="false" identity="true" comment="Teammate Entity ID"/>
+        <column xsi:type="int" name="customer_entity_id" unsigned="true" nullable="false" identity="false" comment="Customer Entity ID"/>
+        <column xsi:type="varchar" name="first_name" nullable="true" comment="Teammate First Name"/>
+        <column xsi:type="varchar" name="last_name" nullable="true" comment="Teammate Last Name"/>
+        <column xsi:type="datetime" name="birthdate" on_update="false" nullable="true" comment="Teammate Birthdate"/>
+        <column xsi:type="varchar" name="role" nullable="true" comment="Teammate Position"/>
+        <column xsi:type="float" name="salary" nullable="true" comment="Teammate Salary"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="teammate_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="ELOGIC_TEAMMATE_CUSTOMER_ENTITY_ID" table="elogic_teammates" column="customer_entity_id" referenceTable="customer_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+        <constraint xsi:type="unique" referenceId="ELOGIC_TEAMMATE_TEAMMATE_ID_CUSTOMER_ENTITY_ID_IND">
+            <column name="teammate_id"/>
+            <column name="customer_entity_id"/>
+        </constraint>
+        <index referenceId="ELOGIC_TEAMMATE_TEAMMATE_ID_IND" indexType="btree">
+            <column name="teammate_id"/>
+        </index>
+        <index referenceId="ELOGIC_TEAMMATE_CUSTOMER_ENTITY_ID_IND" indexType="btree">
+            <column name="customer_entity_id"/>
+        </index>
+    </table>
+</schema>

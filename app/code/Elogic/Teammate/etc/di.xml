@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Elogic\Teammate\Api\TeammateRepositoryInterface" type="Elogic\Teammate\Model\TeammateRepository"/>
+    <preference for="Elogic\Teammate\Api\Data\TeammateInterface" type="Elogic\Teammate\Model\Teammate"/>
+    <preference for="Elogic\Teammate\Api\Data\TeammateSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="elogic_teammate_teammate_listing_data_source" xsi:type="string">Elogic\Teammate\Model\ResourceModel\Teammate\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Elogic\Teammate\Model\ResourceModel\Teammate\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">elogic_teammates</argument>
+            <argument name="resourceModel" xsi:type="string">Elogic\Teammate\Model\ResourceModel\Teammate\Collection</argument>
+        </arguments>
+    </virtualType>
+</config>

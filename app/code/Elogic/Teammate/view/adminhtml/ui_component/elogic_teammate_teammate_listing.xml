@@ -1,0 +1,132 @@
+<?xml version="1.0" ?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">elogic_teammate_teammate_listing.elogic_teammate_teammate_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>elogic_teammate_teammate_columns</spinner>
+        <deps>
+            <dep>elogic_teammate_teammate_listing.elogic_teammate_teammate_listing_data_source</dep>
+        </deps>
+        <buttons>
+            <button name="add">
+                <url path="*/*/new"/>
+                <class>primary</class>
+                <label translate="true">Add new Teammate</label>
+            </button>
+        </buttons>
+    </settings>
+    <dataSource name="elogic_teammate_teammate_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">teammate_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Elogic_Teammate::Teammate</aclResource>
+        <dataProvider name="elogic_teammate_teammate_listing_data_source" class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>teammate_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="elogic_teammate_teammate_columns">
+        <selectionsColumn name="ids">
+            <settings>
+                <indexField>teammate_id</indexField>
+            </settings>
+        </selectionsColumn>
+        <column name="teammate_id">
+            <settings>
+                <filter>text</filter>
+                <sorting>asc</sorting>
+                <label translate="true">TeammateID</label>
+            </settings>
+        </column>
+        <column name="customer_entity_id">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Customer ID</label>
+            </settings>
+        </column>
+        <column name="first_name">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">First Name</label>
+                <editor>
+                    <editorType>text</editorType>
+                    <validation>
+                        <rule name="required-entry" xsi:type="boolean">false</rule>
+                    </validation>
+                </editor>
+            </settings>
+        </column>
+        <column name="last_name">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Last Name</label>
+                <editor>
+                    <editorType>text</editorType>
+                    <validation>
+                        <rule name="required-entry" xsi:type="boolean">false</rule>
+                    </validation>
+                </editor>
+            </settings>
+        </column>
+        <column name="birthdate">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">BirthDate</label>
+                <editor>
+                    <editorType>text</editorType>
+                    <validation>
+                        <rule name="required-entry" xsi:type="boolean">false</rule>
+                    </validation>
+                </editor>
+            </settings>
+        </column>
+        <column name="role">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Role</label>
+                <editor>
+                    <editorType>text</editorType>
+                    <validation>
+                        <rule name="required-entry" xsi:type="boolean">false</rule>
+                    </validation>
+                </editor>
+            </settings>
+        </column>
+        <column name="salary">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Salary</label>
+                <editor>
+                    <editorType>text</editorType>
+                    <validation>
+                        <rule name="required-entry" xsi:type="boolean">false</rule>
+                    </validation>
+                </editor>
+            </settings>
+        </column>
+        <actionsColumn name="actions" class="Elogic\Teammate\Ui\Component\Listing\Column\TeammateActions">
+            <settings>
+                <indexField>teammate_id</indexField>
+                <resizeEnabled>false</resizeEnabled>
+                <resizeDefaultWidth>107</resizeDefaultWidth>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>

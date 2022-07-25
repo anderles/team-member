@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/elogic-teammate/teammate" method="POST">
+        <service class="Elogic\Teammate\Api\TeammateRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Elogic_Teammate::Teammate_save"/>
+        </resources>
+    </route>
+    <route url="/V1/elogic-teammate/teammate/search" method="GET">
+        <service class="Elogic\Teammate\Api\TeammateRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="Elogic_Teammate::Teammate_view"/>
+        </resources>
+    </route>
+    <route url="/V1/elogic-teammate/teammate/:teammateId" method="GET">
+        <service class="Elogic\Teammate\Api\TeammateRepositoryInterface" method="get"/>
+        <resources>
+            <resource ref="Elogic_Teammate::Teammate_view"/>
+        </resources>
+    </route>
+    <route url="/V1/elogic-teammate/teammate/:teammateId" method="PUT">
+        <service class="Elogic\Teammate\Api\TeammateRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Elogic_Teammate::Teammate_update"/>
+        </resources>
+    </route>
+    <route url="/V1/elogic-teammate/teammate/:teammateId" method="DELETE">
+        <service class="Elogic\Teammate\Api\TeammateRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="Elogic_Teammate::Teammate_delete"/>
+        </resources>
+    </route>
+</routes>

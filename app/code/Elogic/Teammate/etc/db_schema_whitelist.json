@@ -1,0 +1,31 @@
+{
+    "elogic_teammates": {
+        "column": {
+            "entity_id": true,
+            "customer_entity_id": true,
+            "first_name": true,
+            "last_name": true,
+            "birthdate": true,
+            "position": true,
+            "salary": true,
+            "department_entity_id": true,
+            "category_entity_id": true,
+            "role": true,
+            "teammate_id": true
+        },
+        "index": {
+            "ELOGIC_TEAMMATES_ENTITY_ID": true,
+            "ELOGIC_TEAMMATES_CUSTOMER_ENTITY_ID": true,
+            "ELOGIC_TEAMMATES_CATEGORY_ENTITY_ID": true,
+            "ELOGIC_TEAMMATES_TEAMMATE_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "ELOGIC_TEAMMATES_CUSTOMER_ENTITY_ID_CUSTOMER_ENTITY_ENTITY_ID": true,
+            "ELOGIC_TEAMMATES_ENTITY_ID_CUSTOMER_ENTITY_ID": true,
+            "ELOGIC_TEAMMATES_CTGR_ENTT_ID_CAT_CTGR_ENTT_ENTT_ID": true,
+            "ELOGIC_TEAMMATES_ENTITY_ID_CUSTOMER_ENTITY_ID_CATEGORY_ENTITY_ID": true,
+            "ELOGIC_TEAMMATES_TEAMMATE_ID_CUSTOMER_ENTITY_ID": true
+        }
+    }
+}
